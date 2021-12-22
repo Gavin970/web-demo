@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    // obj对象
+    let obj = {
+        name:'菜虚鲲',
+        age : 18,
+        sex : '男',
+        hobby: function(){
+            console.log('唱跳rap篮球');
+        }
+    }
+
+    //for in 循环遍历对象
+    for(let key in obj){
+        console.log(key);  // key变量输出得到的是 属性名
+        console.log(obj[key]);  //obj[key]输出得到的是 属性值
+    }
+</script>
+</html>

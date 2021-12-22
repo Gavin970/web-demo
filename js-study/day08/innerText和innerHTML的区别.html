@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="innertext"></div>
+    <div id="innerhtml"></div>
+    <p>
+        吧啦吧啦吧啦
+        <span>嘤嘤嘤</span>
+    </p>
+</body>
+<script>
+    //是否识别html标签
+    let div1 = document.querySelector('#innertext');
+    div1.innerText = 'innerText：<strong>今天是：</strong> 2021年05月20日';
+    let div2 = document.querySelector('#innerhtml');
+    div2.innerHTML = 'innerHTML：<strong>今天是：</strong> 2021年05月20日';
+
+    //是否保留空格
+    let p = document.querySelector('p');
+    console.log('innerText:' + p.innerText);
+    console.log('');
+    console.log('innerHTML:' + p.innerHTML);
+</script>
+</html>

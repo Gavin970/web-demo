@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .box {
+            position: relative;
+            margin: 100px auto;
+            width: 500px;
+            height: 300px;
+            background-color: #eee;
+            border: 1px solid;
+            box-sizing: border-box;
+        }
+        .tracking-number {
+            position: absolute;
+            top:40%;
+            left: 20px;
+        }
+        .number {
+            width: 200px;
+            outline: none;
+        }
+        .show {
+            display: none;
+            position: absolute;
+            top:40%;
+            left: 100px;
+            margin-top: -32px;
+            width: 208px;
+            height: 25px;
+            line-height: 25px;
+            font-size: 20px;
+            background-color: #fff;
+            border: 1px solid;
+            box-sizing: border-box;
+        }
+        .show::after {
+            position: absolute;
+            left: 20px;
+            top: 23px;
+            width: 0;
+            height: 0;
+            line-height: 0;
+            font-size: 0;
+            content: "";
+            border: 7px solid transparent;
+            border-top-color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div class="tracking-number">快递单号：<input type="text" class="number"></div>
+        <div class="show"></div>
+    </div>
+</body>
+<script>
+    let trackingNumber = document.querySelector('.number');
+    let show = document.querySelector('.show');
+    trackingNumber.addEventListener('keyup',function (){
+        if (this.value.length){
+            show.style.display = 'block';
+            show.innerHTML = this.value;
+        } else if (!this.value.length) {
+            show.style.display = 'none';
+        }
+    })
+    trackingNumber.addEventListener('focus', function (){
+        if (trackingNumber.value.length) {
+            show.style.display = 'block';
+        }
+    })
+    trackingNumber.addEventListener('blur', function (){
+        show.style.display = 'none';
+    })
+</script>
+</html>

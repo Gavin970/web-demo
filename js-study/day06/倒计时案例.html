@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+</body>
+<script>
+    function addZero(time){
+        return time < 10 ? '0' + time : time;
+    }
+    function countDown(date1,date2){
+        date = date2 - date1;
+        hh = addZero(parseInt(date/1000/60/60%24));
+        mm = addZero(parseInt(date/1000/60%60));
+        ss = addZero(parseInt(date/1000%60));
+        console.log('距离明天还有：' + hh + ':' + mm + ':' + ss);
+    }
+    let now = +new Date();
+    let tomorrow = +new Date('2021-12-16 00:00:00');
+    countDown(now,tomorrow);
+</script>
+</html>

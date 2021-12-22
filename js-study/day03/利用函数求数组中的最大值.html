@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    function getMaxNum(arr) {
+        arr.sort(function(a, b){return a-b});
+        return arr[arr.length -1];
+    }
+    let arr = [5,77,2,99,101,67];
+    let maxNum = getMaxNum(arr);
+    console.log(maxNum);
+
+
+    function getStr(str1,str2) {
+        return str1 + str2;
+    }
+    let str = getStr('张三');
+    console.log(str);
+</script>
+</html>

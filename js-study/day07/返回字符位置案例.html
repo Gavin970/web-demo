@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    let str = 'abcoefoxyozzopp';
+    let i = 0;
+    let num = 0;
+    let arr = new Array();
+    while (str.indexOf('o',i) !== -1) {
+        num += 1;
+        arr.push(str.indexOf('o',i));
+        i = str.indexOf('o',i) + 1;
+    }
+    console.log('o的数量为'+ num + '个，位置分别为：' + arr.toString());
+</script>
+</html>

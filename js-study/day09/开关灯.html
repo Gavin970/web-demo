@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        button {
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <button>开关灯</button>
+</body>
+<script>
+    let btn = document.querySelector('button');
+    let body = document.querySelector('body');
+    let flag = 0;    
+    btn.onclick = function(){
+        if (flag === 0) {
+            body.style.backgroundColor = 'black';
+            flag++;
+            // console.log(flag);
+        } else {
+            body.style.backgroundColor = 'white';
+            flag = 0;
+            // console.log(flag);
+        }
+    }
+</script>
+</html>

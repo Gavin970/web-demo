@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        .weibo {
+            position: relative;
+            margin: 10px 100px;
+            padding-right: 8px;
+            width: 70px;
+            height: 30px;
+            line-height: 30px;
+            font-size: 14px;
+            color: #333;
+            text-align: center;
+            background-color: #eee;
+            box-sizing: border-box;
+            cursor: pointer;
+        }
+        .weibo::after {
+            position: absolute;
+            top: 10px;
+            margin-left: 5px;
+            width: 5px;
+            height: 5px;
+            border-right: 1px solid;
+            border-bottom: 1px solid;
+            content: "";
+            transform: rotate(45deg);
+        }
+        .weibo:hover {
+            color: orange;
+            background-color: #ddd;
+        }
+        .nav {
+            display: none;
+        }
+        a {
+            display: block;
+            margin-top: -1px;
+            width: 70px;
+            height: 30px;
+            line-height: 30px;
+            color: #333;
+            text-decoration: none;
+            font-size: 14px;
+            border: 1px solid orange;
+            box-sizing: border-box;
+        }
+        a:hover {
+            color: orange;
+            background-color: rgb(255, 180, 0, .1);
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div class="weibo">微博
+            <div class="nav">
+                <a href="#">私信</a>
+                <a href="#">评论</a>
+                <a href="#">@我</a>
+            </div>
+        </div>
+        
+    </div>
+</body>
+<script>
+    let weibo = document.querySelector('.weibo');
+    let nav = document.querySelector('.nav');
+    weibo.onmouseover = function() {
+        nav.style.display = 'block';
+    }
+    weibo.onmouseout = function() {
+        nav.style.display = 'none';
+    }
+</script>
+</html>

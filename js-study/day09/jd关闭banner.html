@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            background-color: rgb(90, 150, 204);
+        }
+        .banner {
+            position: relative;
+            display: block;
+            margin: 0 auto;
+            width: 1190px;
+            height: 80px;
+            background: url(images/173a7303823d0ea1.jpg) no-repeat;
+        }
+        i::after {
+            position: absolute;
+            top: 5px;
+            right: 0;
+            width: 20px;
+            height: 20px;
+            line-height: 18px;
+            font-size: 18px;
+            font-style: normal;
+            text-align: center;
+            content: "x";
+            color: #ddd;
+            background-color: rgba(0, 0, 0, .15);
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <a href="#" class="banner">
+            <i></i>
+        </a>
+    </div>
+</body>
+<script>
+    let close = document.querySelector('i');
+    let banner = document.querySelector('div');
+    close.onclick = function() {
+        banner.style.display = 'none';
+    }
+</script>
+</html>

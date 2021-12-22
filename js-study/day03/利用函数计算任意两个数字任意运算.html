@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    function getResult(num1,num2,symbol) {
+        switch (symbol) {
+            case '+':
+                return num1 + num2;
+                // break;
+    
+            case '-':
+                return num1 - num2;
+                // break;
+            
+            case '*':
+                return num1 * num2;
+                // break;
+        
+            case '\/':
+                if (num2 !== 0) {
+                    return num1 / num2;
+                } else {
+                    alert('分母不能为0')
+                    return false;
+                }
+                // break;
+
+            default:
+                alert('请输入正确的运算符号');
+                return false;
+                // break;
+        }
+    }
+    let num1 = parseInt(prompt('请输入第一个数字'));
+    let num2 = parseInt(prompt('请输入第二个数字'));
+    let symbol = prompt('请输入运算符号');
+    let result = getResult(num1,num2,symbol);
+    if (result !== false) {
+        alert(num1 + symbol + num2 + '=' + result);
+    }
+</script>
+</html>

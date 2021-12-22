@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .report {
+            margin: 100px auto;
+            border-collapse: collapse;
+        }
+        thead tr th {
+            width: 120px;
+            border: 1px solid black;
+            background-color: #ddd;
+        }
+        tbody tr td{
+            text-align: center;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <table cellspacing = "0" class="report">
+        <thead>
+            <tr>
+                <th>姓名</th>
+                <th>科目</th>
+                <th>成绩</th>
+                <th>操作</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+</body>
+<script>
+    //数据
+    let datas = [{
+            name: '钢铁侠',
+            subject: 'JavaScript',
+            score: 100
+        },{
+            name: '米国队长',
+            subject: 'JavaScript',
+            score: 99
+        },{
+            name: '雷神',
+            subject: 'JavaScript',
+            score: 99
+        },{
+            name: '绿巨人',
+            subject: 'JavaScript',
+            score: 98
+        }
+    ]
+    let col = document.querySelector('thead').querySelectorAll('th');
+    //获取操作对象
+    let tbody = document.querySelector('tbody');
+    for (let i = 0; i < datas.length; i++) {
+        //创建行，创建tr元素节点
+        let tr = document.createElement('tr');
+        tbody.appendChild(tr);
+        let arr = [];
+        for (const key in datas[i]) {
+            //创建单元格,创建td元素节点
+            let td = document.createElement('td');
+            tr.appendChild(td);
+            //给单元格添加内容
+            td.innerHTML = datas[i][key];
+        }
+        //创建删除按钮
+        let td = document.createElement('td');
+        tr.appendChild(td);
+        td.innerHTML = '<button class="del">删除</button>';
+    }
+    //删除操作
+    let del = document.querySelectorAll('.del');
+    for (let k = 0; k < del.length; k++) {
+        del[k].onclick = function(){
+        console.log(111);
+        tbody.removeChild(this.parentNode.parentNode)
+        }
+    }
+</script>
+</html>

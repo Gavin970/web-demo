@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div>
+        <button>按钮1</button>
+        <button>按钮2</button>
+        <button>按钮3</button>
+    </div>
+</body>
+<script>
+    let div = document.querySelector('div');
+    //给div设置事件监听器，每次点击按钮时，因为冒泡原理，点击div的子节点也可以执行div的事件
+    div.addEventListener('click',function (){
+        alert('呀呼～！')
+    })
+</script>
+</html>

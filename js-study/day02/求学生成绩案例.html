@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    let sum = 0;
+    let average = 0;
+    let numOfStudent = parseInt(prompt('请输入班级学生总数：'));
+    for (let i = 1; i <= numOfStudent; i++){
+        let score = parseInt(prompt('请输入第'+ i + '个学生的成绩'));
+        sum += score;
+    }
+    average = sum / numOfStudent;
+    alert('班级总成绩为：' + sum);
+    alert('班级平均分为：' + average);
+</script>
+</html>

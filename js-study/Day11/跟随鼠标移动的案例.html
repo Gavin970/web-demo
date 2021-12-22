@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        img {
+            position: absolute;
+            transform: translate(-50%,-50%);
+        }
+    </style>
+</head>
+<body>
+    <img src="images/IMG_5908.GIF" alt="">
+</body>
+<script>
+    let img = document.querySelector('img');
+    let page = document.querySelector('body');
+    page.addEventListener('mousemove',function (e){
+        img.style.top = e.pageY + 'px';
+        img.style.left = e.pageX + 'px';
+    })
+</script>
+</html>

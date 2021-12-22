@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div {
+            margin: 200px;
+        }
+        span {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background-color: #333;
+            font-size: 20px;
+            color: #fff;
+            text-align: center;
+            line-height: 40px;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <span class="hour">00</span>
+        <span class="minute">00</span>
+        <span class="second">00</span>
+    </div>
+</body>
+<script>
+    let hh = document.querySelector('.hour');
+    let mm = document.querySelector('.minute');
+    let ss = document.querySelector('.second');
+
+    function addZero(time){
+        return time < 10 ? '0' + time : time.toString();
+    }
+    function countDown(date1,date2){
+        let timer = [];
+        date = date2 - date1;
+        timer.push(addZero(parseInt(date/1000/60/60%24))); //算出剩余的小时
+        timer.push(addZero(parseInt(date/1000/60%60))); //算出分钟
+        timer.push(addZero(parseInt(date/1000%60))); //算出秒数
+        return timer;
+    }
+    let tomorrow = +new Date('2021-12-16 00:00:00');
+    let setTimes = function (){
+        let now = +new Date();
+        let times = countDown(now,tomorrow);
+        hh.innerHTML = times[0];
+        mm.innerHTML = times[1];
+        ss.innerHTML = times[2];
+    }
+    setTimes();
+    setInterval(setTimes, 500);
+</script>
+</html>

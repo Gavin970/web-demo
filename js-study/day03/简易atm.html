@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    let balance = 100; //余额
+    let num = 0;
+    do {
+        num = parseInt(prompt('请输入您要的操作\n 1.存钱\n 2.取钱\n 3.显示余额\n 4.退出'));
+        switch (num) {
+            case 1:
+                let money = parseInt(prompt('请输入存入的数额'));
+                balance += money;
+                break;
+            case 2:
+                let drawMoney = parseInt(prompt('请输入取出的数额'));
+                if (drawMoney > balance) {
+                    alert('您的余额不足');
+                } else {
+                    alert('成功取出'+ drawMoney + '元');
+                    balance -= drawMoney;
+                }
+                break;
+            case 3:
+                alert('您现在的余额为：'+ balance + '元');
+                break;
+            case 4:
+                alert('退出成功！');
+                break;
+            default:
+                alert('操作错误！');
+                break;
+        }
+    } while (num !== 4);
+</script>
+</html>

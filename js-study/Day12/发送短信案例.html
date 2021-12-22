@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .box {
+            margin: 300px auto;
+            width: 500px;
+            height: 100px;
+        }
+        .auth-code {
+            width: 200px;
+            height: 25px;
+            line-height: 25px;
+            outline: none;
+        }
+        .send {
+            width: 125px;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <input type="text" class="auth-code">
+        <button class="send">点击发送验证码</button>
+    </div>
+</body>
+<script>
+    let sendBtn = document.querySelector('.send');
+    let count = 10;
+    let countDown = function (){
+        if (count != 0) {
+            sendBtn.innerHTML = count + '秒后可重新发送';
+            count--;
+        } else {
+            clearInterval(cd);
+            sendBtn.innerHTML = '点击发送验证码';
+            sendBtn.disabled = '';
+            sendBtn.style.color = '#000';
+            count = 10;
+        }
+    }
+    let cd = null;
+    sendBtn.addEventListener('click', function (){
+        this.disabled = true;
+        this.style.color = '#999';
+        cd = setInterval(countDown, 1000);
+    });
+</script>
+</html>

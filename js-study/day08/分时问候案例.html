@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <span>上午好</span>
+        <br>
+        <img src="" alt="">
+    </div>
+</body>
+<script>
+    function getHour() {
+        let date = new Date();
+        return date.getHours();
+    }
+    let span = document.querySelector('span');
+    let img = document.querySelector('img');
+    
+    function greeting(h) {
+        if (h >= 6 && h < 12) {
+            span.innerText = '上午好';
+            img.src = 'images/z.gif';
+        } else if (h >= 12 && h < 18) {
+            span.innerText = '下午好';
+            img.src = 'images/x.gif';
+        } else if (h >= 0 && h < 6 || h >= 18 && h < 24) {
+            span.innerText = '晚上好';
+            img.src = 'images/w.gif';
+        }
+    }
+    greeting(getHour());
+</script>
+</html>

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <a href="https://www.baidu.com">baidu</a>
+    <br>
+    <a href="https://www.baidu.com">baidu（阻止跳转）</a>
+</body>
+<script>
+    let aa = document.querySelectorAll('a');
+    aa[1].addEventListener('click', function (e){
+        e.preventDefault();
+    })
+</script>
+</html>

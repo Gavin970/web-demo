@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            margin: 100px;
+        }
+        li {
+            max-width: 300px;
+            background-color: #ddd;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <textarea name="" id="" cols="30" rows="10"></textarea>
+        <button>发布</button>
+        <ul>
+        </ul>
+    </div>
+</body>
+<script>
+    let btn = document.querySelector('button');
+    let ul = document.querySelector('ul');
+    let text = document.querySelector('textarea');
+    btn.onclick = function() {
+        if (!text.value) {
+            //未输入内容
+            alert('请先输入您的留言！');
+        } else {
+            //创建节点
+            let comment = document.createElement('li');
+            //添加节点
+            ul.insertBefore(comment,ul.children[0]);
+            //获取第一个li元素
+            let lastComment = ul.children[0];
+            //将文本框的内容添加到第一个li元素中
+            lastComment.innerText = text.value;
+        }
+    }
+    
+</script>
+</html>

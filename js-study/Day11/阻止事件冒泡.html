@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div class="father">
+        <div class="son"></div>
+    </div>
+</body>
+<script>
+    let son = document.querySelector('.son');
+    son.addEventListener('click', function (e){
+        alert('son');
+        e.stopPropagation(); //dom标准方式
+        e.cancelBubble = true; //非标准，低版本ie使用
+    })
+</script>
+</html>

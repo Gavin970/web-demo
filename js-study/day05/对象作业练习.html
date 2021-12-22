@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+</body>
+<script>
+    //构造函数
+    function obj(color,weight,sign){
+        this.color = color,
+        this.weight = weight,
+        this.sign = sign
+    }
+    //电脑对象
+    console.log('---------电脑对象---------');
+    let computer = new obj('银色','5kg','苹果');
+    computer.model = '布吉岛的型号';
+    computer.watchMovie = function() {
+        console.log('看电影');
+    }
+    computer.listenMusic = function() {
+        console.log('《都是夜归人》');
+    }
+    computer.playGame = function() {
+        console.log('打游戏');
+    }
+    computer.writeCode = function() {
+        console.log('敲代码');
+    }
+    for(let key in computer) {
+        console.log(key);
+        console.log(computer[key]);
+    }
+
+    //车子对象
+    console.log('---------车子对象---------');
+    let car = new obj('白色','1吨','大众');
+    car.manned = function() {
+        console.log('载人');
+    }
+    car.pickUpTheGoods = function() {
+        console.log('拉货');
+    }
+    car.ploughing = function() {
+        console.log('耕田');
+    }
+    for(let key in car) {
+        console.log(key);
+        console.log(car[key]);
+    }
+
+    //按钮对象
+    console.log('---------按钮对象---------');
+    let button = {
+        width : '10cm',
+        height : '10cm',
+        backgroundColor : '黄色',
+        openOrClose : function() {
+            console.log('点击开或关');
+        }
+    }
+    for(let key in button) {
+        console.log(key);
+        console.log(button[key]);
+    }
+    button.openOrClose();
+</script>
+</html>
