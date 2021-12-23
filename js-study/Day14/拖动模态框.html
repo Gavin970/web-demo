@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        .loginBtn {
+            margin: auto;
+            width: 300px;
+            font-size: 30px;
+            text-align: center;
+            cursor: pointer;
+        }
+        .bg {
+            display: none;
+            position: absolute;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.2);
+        }
+        .loginBox {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 500px;
+            height: 250px;
+            background-color: #fff;
+        }
+        .title {
+            height: 70px;
+            line-height: 70px;
+            text-align: center;
+            font-size: 24px;
+            cursor: move;
+        }
+        .info {
+            margin: 0 30px;
+            height: 40px;
+            line-height: 40px;
+            font-size: 18px;
+        }
+        .userName {
+            margin-bottom: 10px;
+        }
+        .info input {
+            margin-left: 10px;
+            padding-left: 10px;
+            width: 250px;
+            height: 35px;
+            color: #999;
+            border: 1px solid rgba(0, 0, 0, .2);
+            outline: none;
+            box-sizing: border-box;
+        }
+        .login {
+            display: block;
+            margin: 20px auto;
+            width: 80px;
+            height: 35px;
+            font-size: 16px;
+        }
+        .close {
+            position: absolute;
+            top: 0;
+            right: 0;
+            transform: translate(40%, -40%);
+            width: 35px;
+            height: 35px;
+            line-height: 35px;
+            text-align: center;
+            font-size: 12px;
+            border: 1px solid #eee;
+            border-radius: 50%;
+            background-color: #fff;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="loginBtn">点击弹出登陆框</div>
+    <div class="bg">
+        <div class="loginBox">
+            <div class="title"><span>会员登录</span></div>
+            <div class="userName info">
+                用户名：<input type="text" value="请输入用户名">
+            </div>
+            <div class="password info">
+                密&nbsp;&nbsp;&nbsp;码：<input type="text" value="请输入登陆密码">
+            </div>
+            <button class="login">登&nbsp;&nbsp;录</button>
+            <div class="close">关闭</div>
+        </div>
+    </div>
+</body>
+<script>
+    let loginBtn = document.querySelector('.loginBtn');
+    let bg = document.querySelector('.bg');
+    let close = document.querySelector('.close');
+    let move = document.querySelector('.title');
+    let loginBox = document.querySelector('.loginBox');
+    loginBtn.addEventListener('click',function (){
+        bg.style.display = 'block';
+    });
+    close.addEventListener('click',function (){
+        bg.style.display = 'none';
+    });
+    move.addEventListener('mousedown',function (e){
+        let x = e.pageX - loginBox.offsetLeft;
+        let y = e.pageY - loginBox.offsetTop;
+        document.addEventListener('mousemove', moveBox);
+        document.addEventListener('mouseup',function (){
+            document.removeEventListener('mousemove', moveBox);
+        })
+        function moveBox(e) {
+            console.log(e.pageY - y);
+            console.log(e.pageX - x);
+            loginBox.style.top = e.pageY - y + 'px';
+            loginBox.style.left = e.pageX - x + 'px';
+        }
+    });
+</script>
+</html>
