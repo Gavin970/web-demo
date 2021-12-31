@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="shortcut icon" href="../favicon.ico">
+    <script type="text/javascript" src="../js/vue.js"></script>
+    <style>
+        div {
+            padding: 5px;
+        }
+    </style>
+</head>
+<body>
+<!--准备一个容器-->
+<div class="root">
+    <div class="surname">姓：<input type="text" v-model="surname"></div>
+    <div class="name">名：<input type="text" v-model="name"></div>
+    <div class="fullName">全名：{{fullName}}</div>
+</div>
+
+<script type="text/javascript">
+    Vue.config.productionTip = false; //阻止vue在启动时生成生产提示
+
+    //创建vue实例
+    const vm = new Vue({
+        el: '.root',
+        data: {
+            surname:'张',
+            name:'三'
+        },
+        computed:{
+            fullName:{
+                //get什么时候调用？ 当有人读取fullName时，get就会被调用，且返回值就被作为fullName的值
+                get(){
+                    return this.surname + '-' + this.name;
+                },
+                //set什么时候调用？ 当fullName被修改时
+                set(value){
+                    const arr = value.split('-');
+                    this.surname = arr[0];
+                    this.name = arr[1];
+                }
+            }
+        }
+    });
+</script>
+</body>
+</html>

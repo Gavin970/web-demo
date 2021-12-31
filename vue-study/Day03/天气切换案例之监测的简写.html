@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="shortcut icon" href="../favicon.ico">
+    <script type="text/javascript" src="../js/vue.js"></script>
+</head>
+<body>
+<!--准备一个容器-->
+<div class="root">
+    <h1>今天天气很{{feel}}</h1>
+    <button @click="change">切换</button>
+</div>
+
+<script type="text/javascript">
+    Vue.config.productionTip = false; //阻止vue在启动时生成生产提示
+
+    //创建vue实例
+    const vm = new Vue({
+        el: '.root',
+        data: {
+            isHot: true
+        },
+        methods:{
+            change(){
+                this.isHot = !this.isHot;
+            }
+        },
+        computed:{
+            feel(){
+                return this.isHot ? '炎热' : '凉爽';
+            }
+        },
+        watch:{
+            //1.在watch配置中简写
+            isHot(newValue, oldValue){
+                console.log('isHot被改了', newValue, oldValue)
+            }
+        }
+    });
+    //2. 通过vm.$watch进行监测的简写
+    vm.$watch('isHot',function (newValue, oldValue){
+        console.log('isHot被改了', newValue, oldValue)
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="shortcut icon" href="../favicon.ico">
+    <script type="text/javascript" src="../js/vue.js"></script>
+</head>
+<body>
+<!--准备一个容器-->
+<div class="root">
+    <h2>a的值是：{{numbers.a}}</h2>
+    <button @click="numbers.a++">点我a+1</button>
+    <br>
+    <h2>a的值是：{{numbers.b}}</h2>
+    <button @click="numbers.b++">点我b+1</button>
+</div>
+
+<script type="text/javascript">
+    Vue.config.productionTip = false; //阻止vue在启动时生成生产提示
+
+    //创建vue实例
+    new Vue({
+        el: '.root',
+        data: {
+            numbers:{
+                a:1,
+                b:1
+            }
+        },
+        watch:{
+            //1.监视多级结构中某个属性的变化
+            'numbers.a':{
+                handler() {
+                    console.log('a变了');
+                }
+            },
+            //2.监视多级结构中所有属性的变化
+            numbers:{
+                deep:true,
+                handler() {
+                    console.log('number改变了')
+                }
+            }
+        }
+    });
+</script>
+</body>
+</html>
