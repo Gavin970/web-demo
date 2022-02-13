@@ -50,6 +50,12 @@
         <br><br>
         <!-- 对象写法，适用于要绑定的样式个数确定、名字确定，但是需要动态决定是否使用的情况 -->
         <div class="basic" :class="classObj">{{name}}</div>
+        <br><br>
+        <!-- 绑定style样式 对象写法 -->
+        <div class="basic" :style="styleObj">{{name}}</div>
+        <br><br>
+        <!-- 绑定style样式 数组写法 -->
+        <div class="basic" :style="styleArr">{{name}}</div>
     </div>
 
 
@@ -66,7 +72,20 @@
                 classObj:{
                     'qiu1':true,
                     'qiu2':true
-                }
+                },
+                styleObj:{
+                    'fontSize':'40px',
+                    'backgroundColor':'orange'
+                },
+                styleArr:[
+                    {
+                        'fontSize':'40px',
+                        'backgroundColor':'orange'
+                    },
+                    {
+                        'color':'red'
+                    }
+                ]
             },
             methods: {
                 changeMood(){
