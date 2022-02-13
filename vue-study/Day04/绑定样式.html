@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="shortcut icon" href="../favicon.ico">
+    <script type="text/javascript" src="../js/vue.js"></script>
+    <style>
+        .basic{
+            width: 400px;
+            height: 100px;
+            border: 1px solid black;
+        }
+        
+        .happy{
+            border: 4px solid red;;
+            background-color: rgba(255, 255, 0, 0.644);
+            background: linear-gradient(30deg,yellow,pink,orange,yellow);
+        }
+        .sad{
+            border: 4px dashed rgb(2, 197, 2);
+            background-color: gray;
+        }
+        .normal{
+            background-color: skyblue;
+        }
+
+        .qiu1{
+            background-color: yellowgreen;
+        }
+        .qiu2{
+            font-size: 30px;
+            text-shadow:2px 2px 10px red;
+        }
+        .qiu3{
+            border-radius: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id ="root">
+        <!-- 字符串写法，适用于样式的名字不确定，需要动态指定的情况 -->
+        <div class="basic" :class="mood" @click="changeMood">{{name}}</div>
+        <br><br>
+        <!-- 数组写法，适用于要绑定的样式个数不确定、名字也不确定的情况 -->
+        <div class="basic" :class="classArr">{{name}}</div>
+        <br><br>
+        <!-- 对象写法，适用于要绑定的样式个数确定、名字确定，但是需要动态决定是否使用的情况 -->
+        <div class="basic" :class="classObj">{{name}}</div>
+    </div>
+
+
+    <script type="text/javascript">
+        Vue.config.productionTip = false; //阻止vue在启动时生成生产提示
+
+        //创建Vue实例,得到 ViewModel
+        var vm = new Vue({
+            el: '#root',
+            data: {
+                name:'秋刀鱼',
+                mood:'normal',
+                classArr:['qiu1','qiu2','qiu3'],
+                classObj:{
+                    'qiu1':true,
+                    'qiu2':true
+                }
+            },
+            methods: {
+                changeMood(){
+                    const moodArr = ['happy','sad','normal'];
+                    this.mood = moodArr[Math.floor(Math.random()*3)];
+                }
+                
+            }
+        });
+    </script>
+</body>
+
+</html>
