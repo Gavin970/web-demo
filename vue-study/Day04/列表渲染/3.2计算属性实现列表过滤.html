@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="shortcut icon" href="../../favicon.ico">
+    <script src="../../js/vue.js"></script>
+</head>
+
+<body>
+    <div id ="root">
+        <h2>人员列表</h2>
+        <input type="text" placeholder="请输入内容进行模糊搜索" v-model="keyWords">
+        <ul>
+            <li v-for="p in filPersons" :key="p.id">
+                {{p.name}}-{{p.age}}-{{p.sex}}
+            </li>
+        </ul>
+    </div>
+    <script>
+        Vue.config.productionTip = false; //阻止vue在启动时生成提示
+        //创建Vue实例,得到 ViewModel
+        const vm = new Vue({
+            el: '#root',
+            data: {
+                keyWords:'',
+                persons:[
+                    {id:001,name:'李白',age:23,sex:'男'},
+                    {id:002,name:'李清照',age:18,sex:'女'},
+                    {id:003,name:'朱自清',age:30,sex:'男'},
+                    {id:004,name:'朱熹',age:25,sex:'男'}
+                ],
+            },
+            computed: {
+                filPersons(){
+                    return this.persons.filter((p) => {
+                        return p.name.indexOf(this.keyWords) !== -1;
+                    })
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>
