@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
-    <link rel="shortcut icon" href="../../favicon.ico">
+    <link rel="shortcut icon" href="../favicon.ico">
     <script src="../../js/vue.js"></script>
 </head>
 
@@ -13,9 +13,9 @@
     <div id ="root">
         <h2>人员列表</h2>
         <input type="text" placeholder="请输入内容进行模糊搜索" v-model="keyWords">
-        <button>年龄顺序</button>
-        <button>年龄倒序</button>
-        <button>初始顺序</button>
+        <button @click="sortType = 2">年龄顺序</button>
+        <button @click="sortType = 1">年龄倒序</button>
+        <button @click="sortType = 0">初始顺序</button>
         <ul>
             <li v-for="p in filPersons" :key="p.id">
                 {{p.name}}-{{p.age}}-{{p.sex}}
@@ -29,6 +29,7 @@
             el: '#root',
             data: {
                 keyWords:'',
+                sortType:0, //0原顺序 1降序 2升序
                 persons:[
                     {id:001,name:'李白',age:23,sex:'男'},
                     {id:002,name:'李清照',age:18,sex:'女'},
@@ -38,12 +39,19 @@
             },
             computed: {
                 filPersons(){
-                    return this.persons.filter((p) => {
-                        return p.name.indexOf(this.keyWords) !== -1;
-                    })
+	                const arr = this.persons.filter((p)=>{
+		                return p.name.indexOf(this.keyWords) !== -1;
+	                })
+	                //判断一下是否需要排序
+	                if(this.sortType){
+	                	arr.sort((p1,p2)=>{
+	                		return this.sortType === 1 ? p2.age-p1.age : p1.age-p2.age;
+	                	})
+	                }
+	                return arr;
                 }
             }
-        });
+        })
     </script>
 </body>
 
