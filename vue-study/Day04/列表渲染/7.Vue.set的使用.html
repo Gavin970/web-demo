@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="shortcut icon" href="../../favicon.ico">
+    <script src="../../js/vue.js"></script>
+</head>
+
+<body>
+    <div id ="root">
+        <h2>学校名称: {{name}}</h2>
+        <h2>学校地址: {{address}}</h2>
+        <hr>
+        <h1>学生信息</h1>
+        <h2>姓名: {{student.name}}</h2>
+        <h2>性别: {{student.sex}}</h2>
+        <h2>年龄: 真实{{student.age.realAge}}, 对外{{student.age.virtuallyAge}}</h2>
+        <h2>朋友们:</h2>
+        <ul>
+            <li v-for="f in student.friends">
+                {{f.name}}--{{f.age}}
+            </li>
+        </ul>
+    </div>
+    <script>
+        Vue.config.productionTip = false; //阻止vue在启动时生成提示
+        //创建Vue实例,得到 ViewModel
+        const vm = new Vue({
+            el: '#root',
+            data: { 
+                name: '上政',
+                address: '上海',
+                student: {
+                    name: '玛卡巴卡',
+                    sex: '女',
+                    age: {
+                        realAge: 26,
+                        virtuallyAge: 16
+                    },
+                    friends: [
+                        {name: '骆骆', age: 26},
+                        {name: '蒙着', age: 26}
+                    ]
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

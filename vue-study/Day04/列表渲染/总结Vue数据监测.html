@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="shortcut icon" href="../../favicon.ico">
+    <script src="../../js/vue.js"></script>
+    <style>
+        button {
+            margin-top: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id ="root">
+        <h1>学生信息</h1>
+        <button @click="student.age++">年龄+1</button><br>
+        <button @click="addSex">添加性别属性，默认值女</button><br>
+        <button @click="updateFirstFriendName">修改第一个朋友的名字为: 骆骆</button><br>
+        <button @click="addFriend">在列表首位添加一个朋友</button><br>
+        <button @click="addHobby">添加一个爱好</button><br>
+        <button @click="updateSecondHobby">修改第二个爱好为: 开车</button><br>
+        <h3>姓名: {{student.name}}</h3>
+        <h3 v-if="student.sex">性别: {{student.sex}}</h3>
+        <h3>年龄: {{student.age}}</h3>
+        <h3>爱好:</h3>
+        <ul>
+            <li v-for="h in student.hobby">{{h}}</li>
+        </ul>
+        <h3>朋友:</h3>
+        <ul>
+            <li v-for="f in student.friends">
+                {{f.name}}--{{f.age}}
+            </li>
+        </ul>
+    </div>
+    <script>
+        Vue.config.productionTip = false; //阻止vue在启动时生成提示
+        //创建Vue实例,得到 ViewModel
+        const vm = new Vue({
+            el: '#root',
+            data: { 
+                student: {
+                    name: '玛卡巴卡',
+                    age: 25,
+                    hobby: ['学习', '买买买', '玩耍'],
+                    friends: [
+                        {name: '想组乐队的', age: 26},
+                        {name: '蒙着', age: 27}
+                    ]
+                }
+            },
+            methods: {
+                addSex(){
+                    Vue.set(this.student,'sex','女');
+                },
+                addFriend(){
+                    this.student.friends.unshift({name: '醒醒', age: 27});
+                },
+                updateFirstFriendName(){
+                    this.student.friends[0].name = '骆骆';
+                },
+                addHobby(){
+                    this.student.hobby.push('吃吃吃');
+                },
+                updateSecondHobby(){
+                    this.student.hobby.splice(1, 1, '开车');
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>
