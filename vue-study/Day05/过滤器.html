@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="shortcut icon" href="../favicon.ico">
+    <script src="../js/vue.js"></script>
+    <script src="../js/dayjs.min.js"></script>
+</head>
+
+<body>
+    <div id ="root">
+        <!-- 计算属性实现 -->
+        <h3>现在是: {{fmtTime}}</h3>
+        <!-- methods实现 -->
+        <h3>现在是: {{getFmtTime()}}</h3>
+        <!-- 过滤器实现 -->
+        <h3>现在是: {{time | timeFormater}}</h3>
+        <h3>现在是: {{time | timeFormater('YYYY-MM-DD') | myslice}}</h3>
+    </div>
+
+    <div id="root2">
+        <h3>{{name | myslice}}</h3>
+    </div>
+
+    <script>
+        Vue.config.productionTip = false; //阻止vue在启动时生成提示
+        //全局过滤器
+        Vue.filter('myslice', function(value){
+            return value.slice(0,4);
+        })
+
+        //创建Vue实例,得到 ViewModel
+        const vm = new Vue({
+            el: '#root',
+            data: {
+                time: Date.now()
+            },
+            methods: {
+                getFmtTime(){
+                    return dayjs(this.time).format('YYYY-MM-DD HH:mm:ss');
+                }
+            },
+            computed: {
+                fmtTime(){
+                    return dayjs(this.time).format('YYYY-MM-DD HH:mm:ss');
+                }
+            },
+            //局部过滤器
+            filters: {
+                timeFormater(value,str='YYYY-MM-DD HH:mm:ss'){
+                    return dayjs(value).format(str);
+                }
+            }
+        });
+
+        new Vue({
+            el: '#root2',
+            data: {
+                name: 'John·Smith'
+            }
+        })
+    </script>
+</body>
+
+</html>
