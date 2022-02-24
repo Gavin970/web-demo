@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="shortcut icon" href="../favicon.ico">
+    <script src="../js/vue.js"></script>
+</head>
+
+<body>
+    <div id ="root">
+        <h2 :style="{opacity}">哦埋伊莫新得一路</h2>
+    </div>
+
+    <script>
+        Vue.config.productionTip = false; //阻止vue在启动时生成提示
+
+        //创建Vue实例,得到 ViewModel
+        const vm = new Vue({
+            el: '#root',
+            data: {
+                opacity: 1
+            },
+            mounted(){
+                setInterval(() => {
+                    this.opacity -= 0.01;
+                    if (this.opacity <=0) {
+                        this.opacity = 1;
+                    }
+                },16)
+            }
+        });
+    </script>
+</body>
+
+</html>
