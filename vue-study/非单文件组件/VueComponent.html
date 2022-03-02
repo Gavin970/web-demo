@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="shortcut icon" href="../favicon.ico">
+    <script src="../js/vue.js"></script>
+</head>
+ 
+<body>
+    <div id ="root">
+        <school></school>
+        <school></school>
+    </div>
+ 
+    <script>
+        Vue.config.productionTip = false; //阻止vue在启动时生成提示
+
+        //创建学校组件
+        const school = Vue.extend({
+            template:`
+                <div>
+                    <h2>学校名称: {{name}}</h2>
+                    <h2>学校地址: {{address}}</h2>
+                </div>
+            `, 
+            data(){
+                return {
+                    name: '上政',
+                    address: '上海'
+                }
+            }
+        })
+
+        console.log('@@@',school);
+
+        //创建Vue实例,得到 ViewModel
+        const vm = new Vue({
+            el: '#root',
+            components:{
+                school
+            }
+        });
+    </script>
+</body>
+
+</html>

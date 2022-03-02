@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="shortcut icon" href="../favicon.ico">
+    <script src="../js/vue.js"></script>
+</head>
+
+<body>
+    <div id ="root">
+        <hello></hello>
+        <br>
+        <school></school>
+        <br>
+        <student></student>
+    </div>
+
+    <script>
+        Vue.config.productionTip = false; //阻止vue在启动时生成提示
+
+        //创建学校组件
+        const school = Vue.extend({
+            //组件中不需要写el配置项，最终所有的组件都归vm所管理
+
+            template:`
+                <div>
+                    <h2>学校名称: {{name}}</h2>
+                    <h2>学校地址: {{address}}</h2>
+                </div>
+            `,
+            data: function(){
+                return {
+                    name: '上政',
+                    address: '上海'
+                }
+            }
+        })
+
+        //创建学生组件
+        const student = Vue.extend({
+            template:`
+                <div>
+                    <h2>学生姓名: {{name}}</h2>
+                    <h2>年龄: {{age}}</h2>
+                </div>
+            `,
+            data: function(){
+                return {
+                    name: '玛卡巴卡',
+                    age: 16
+                }
+            }
+        })
+
+        //创建hello组件
+        const hello = Vue.extend({
+            template:`
+                <div>
+                    <h2>你好哇! {{hello}}</h2>
+                </div>
+            `,
+            data: function(){
+                return {
+                    hello: '欢迎~'
+                }
+            }
+        })
+        //全局注册组件
+        Vue.component('hello',hello);
+
+        //创建Vue实例,得到 ViewModel
+        const vm = new Vue({
+            el: '#root',
+            data: {},
+            methods: {},
+            //局部注册组件
+            components: {
+                school,
+                student
+            }
+        });
+    </script>
+</body>
+
+</html>
