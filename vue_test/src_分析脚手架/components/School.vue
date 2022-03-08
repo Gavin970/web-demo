@@ -1,9 +1,8 @@
 <template>
-  <div>
+  <div class="demo">
     <!-- 组件的结构 -->
-    <h2 class="demo">学校名称: {{name}}</h2>
-    <h2 class="demo">学校地址: {{address}}</h2>
-    <button @click="showVc">点我获取组件实例对象</button>
+    <h2>学校名称: {{name}}</h2>
+    <h2>学校地址: {{address}}</h2>
   </div>
 </template>
 
@@ -16,16 +15,11 @@
                 name: '上政',
                 address: '上海'
             }
-        },
-        methods:{
-            showVc(){
-                console.log(this); 
-            }
         }
     }
 </script>
 
-<style>
+<style scoped>
     /* 组件的样式 */
     .demo{
         color: orange;

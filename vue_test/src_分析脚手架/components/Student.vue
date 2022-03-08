@@ -1,8 +1,8 @@
 <template>
-  <div>
+  <div class="demo">
     <!-- 组件的结构 -->
-    <h2 class="demo">姓名: {{name}}</h2>
-    <h2 class="demo">年龄: {{age}}</h2>
+    <h2>姓名: {{name}}</h2>
+    <h2>年龄: {{age}}</h2>
   </div>
 </template>
 
@@ -22,7 +22,7 @@
     }
 </script>
 
-<style>
+<style scoped>
     /* 组件的样式 */
     .demo{
         color: skyblue;
