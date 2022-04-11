@@ -2,10 +2,10 @@
     <div>
         <li>
             <label>
-                <input type="checkbox" :checked="todo.isDone"/>
+                <input type="checkbox" :checked="todo.isDone" @change="handleCheck(todo.id)"/>
                 <span>{{todoTitle}}</span>
             </label>
-            <button class="btn btn-danger" style="display:none">删除</button>
+            <button class="btn btn-danger" @click="handleDel(todo.id)">删除</button>
         </li>
     </div>
 </template>
@@ -13,10 +13,19 @@
 <script>
     export default {
         name:'MyItem',
-        props:['todo'],
+        props:['todo','checkTodo','delTodo'],
         data(){
             return {
                 todoTitle:this.todo.title
+            }
+        },
+        methods:{
+            handleCheck(checkId){
+                this.checkTodo(checkId)
+            },
+            handleDel(delId){
+                this.delTodo(delId)
+                // console.log(delId);
             }
         }
     }
@@ -56,5 +65,12 @@
 
     li:last-child {
     border-bottom: none;
+    }
+
+    li:hover {
+        background-color: #ccc;
+    }
+    li:hover button {
+        display: block;
     }
 </style>

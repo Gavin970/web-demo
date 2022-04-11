@@ -8,7 +8,7 @@
     import {nanoid} from 'nanoid'
     export default {
         name:'Myheader',
-        props:['addTodo'],
+        // props:['addTodo'],
         data() {
             return {
                 title:''
@@ -19,9 +19,9 @@
                 if (!this.title.trim()) {
                     return
                 }
-                const todoObj = {id:nanoid(), title:this.title, isDone:false}
+                const todoObj = {id:nanoid(), title:this.title, isDone:false, isDel:false}
                 // console.log(todoObj)
-                this.addTodo(todoObj)
+                this.$emit('addTodo',todoObj)
                 this.title = ''
             }
         },
