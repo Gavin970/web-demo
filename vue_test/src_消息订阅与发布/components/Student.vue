@@ -3,12 +3,12 @@
     <!-- 组件的结构 -->
     <h2>姓名: {{name}}</h2>
     <h2>年龄: {{age}}</h2>
-    <button @click="sendStudentName(name)">点我传递学生姓名给App</button>
-    <button @click="m1()">点我解绑事件</button>
+    <button @click="sendStudentName">点我将学生姓名传给school组件</button>
   </div>
 </template>
 
 <script>
+    import pubsub from 'pubsub-js'
     // 组件交互相关的代码
     export default {
         name:'Student',
@@ -20,13 +20,8 @@
         },
         methods:{
             sendStudentName(){
-                this.$emit('getStudentName',this.name)
-                // this.$emit('demo')
-            },
-            m1(){
-                this.$off('getStudentName') //解绑一个事件
-                // this.$off(['getStudentName','demo']) //解绑多个事件
-                // this.$off() //解绑所有事件
+                // this.$bus.$emit('getStudentName',this.name)
+                pubsub.publish('getStudentName',this.name)
             }
         }
     }

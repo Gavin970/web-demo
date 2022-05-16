@@ -1,15 +1,15 @@
 import Vue from 'vue'
 import App from './App.vue'
-import VueRouter from 'vue-router'
-import router from './router/index'
+import vueResource from 'vue-resource'
+import store from './store/index'
 
 Vue.config.productionTip = false
-Vue.use(VueRouter)
+Vue.use(vueResource)
 
 new Vue({
   el: '#app',
   render: h => h(App),
-  router:router,
+  store: store,
   beforeCreate() {
     Vue.prototype.$bus = this
   },
