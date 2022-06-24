@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script src="HD.js"></script>
+<script>
+  'use strict';
+  // let name = "芜湖";
+  // let grade = [{
+  //     name: "js",
+  //     score: 99
+  //   },
+  //   {
+  //     name: "php",
+  //     score: 67
+  //   }
+  // ];
+
+  // function average(grade, name) {
+  //   let total = grade.reduce((t, l) => {
+  //     console.log("t" + t);
+  //     console.log("l" + l.score);
+  //     return t + l.score
+  //   });
+  //   console.log(total / grade.length);
+  //   // console.log(name);
+  // }
+  // average(grade, name);
+
+  let user = {
+    name: "芜湖",
+    grade: [{
+        name: "js",
+        score: 99
+      },
+      {
+        name: "php",
+        score: 67
+      }
+    ],
+    average(grade, name) {
+      let total = grade.reduce((t, l) => {
+        return t + l.score
+      }, 0);
+      console.log(total / grade.length);
+      console.log(this);
+    }
+  }
+
+  function wuhu() {
+    console.log(this);
+  }
+  wuhu();
+  user.average(user.grade, user.name)
+</script>
+
+</html>

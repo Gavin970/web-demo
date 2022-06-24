@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    function User() {
+
+    }
+    User.__proto__.view = function () {
+      console.log("view method");
+    }
+    User.view()
+    // User.prototype.show = function () {
+    //   console.log('sanbin');
+    // };
+    console.dir(User);
+    // let sb = new User();
+    // console.log("sb", sb);
+    // sb.show();
+    // console.log(User.prototype === sb.__proto__);
+  </script>
+</body>
+
+</html>
