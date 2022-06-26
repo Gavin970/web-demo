@@ -8,7 +8,7 @@ import Message from '../pages/Message'
 import Detail from '../pages/Detail'
 
 // 创建一个路由器
-export default new VueRouter({
+const vueRouter1 = new VueRouter({
   routes:[
     {
       path:'/about',
@@ -48,3 +48,7 @@ export default new VueRouter({
     },
   ]
 })
+
+console.log(vueRouter1);
+
+export default vueRouter1;
