@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let sb = {
+        data: [1, 2, 3, 32, 24, 5, 7],
+      };
+      let max = {
+        getMax() {
+          return sb.data.sort((a, b) => b - a)[0];
+        },
+      };
+      Object.setPrototypeOf(sb, max);
+      console.log(sb.getMax());
+      let nb = {
+        lessons: { js: 87, node: 99, java: 88 },
+        get data() {
+          return Object.values(this.lessons);
+        },
+      };
+      // console.dir(nb);
+      console.log(sb.getMax.apply(nb));
+    </script>
+  </body>
+</html>
