@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <script>
+      let sb = {
+        name: 'sanbin',
+        get proto() {
+          return this.name;
+        },
+        set proto(obj) {
+          if (obj instanceof Object) {
+            this.name = obj;
+          }
+        },
+      };
+      sb.proto = {
+        show: function () {},
+      };
+      console.log(sb.proto);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const data = [
+        { name: 'js', score: 100 },
+        { name: 'mysql', score: 90 },
+        { name: 'vue.js', score: 98 },
+      ];
+      class Lesson {
+        constructor(data) {
+          this.model = data;
+        }
+        static getLessons(data) {
+          return data.map((item) => {
+            return new Lesson(item);
+          });
+        }
+        static getBestLesson(data) {
+          return data.sort((a, b) => {
+            // console.log(b);
+            return b.model.score - a.model.score;
+          })[0];
+        }
+      }
+      // let js = new Lesson(data[0]);
+      // console.log(js);
+      let lessons = Lesson.getLessons(data);
+      // console.log(lessons);
+      console.log(Lesson.getBestLesson(lessons));
+    </script>
+  </body>
+</html>

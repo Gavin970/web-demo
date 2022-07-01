@@ -7,6 +7,17 @@
     <title>Document</title>
   </head>
   <body>
-    <script></script>
+    <script>
+      function User() {}
+      User.prototype.show = function () {
+        console.log(this);
+        function test() {
+          console.log(this);
+        }
+        test();
+      };
+      let sb = new User();
+      sb.show();
+    </script>
   </body>
 </html>
