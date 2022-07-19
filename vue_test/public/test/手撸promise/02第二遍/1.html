@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>手撸promise</title>
+    <script src="1.js"></script>
+  </head>
+  <body>
+    <script>
+      new HD((resolve, reject) => {
+        resolve('第一遍成功了');
+        // reject('no!');
+      })
+        .then()
+        .then(
+          (value) => {
+            setTimeout(() => {
+              console.log(1111, value);
+            }, 1000);
+            return new HD((resolve, reject) => {
+              // resolve('wuhu~');
+              reject('第二遍失败了');
+            });
+          },
+          (reason) => {
+            // console.log(aaa);
+            console.log('第一个then: (reject)' + reason);
+            return '第一遍失败后返回的东西';
+          }
+        )
+        .then(
+          (value) => {
+            console.log(value);
+          },
+          (reason) => {
+            console.log(reason);
+          }
+        );
+
+      // setTimeout(() => {
+      //   console.log(p);
+      // }, 1000);
+    </script>
+  </body>
+</html>
