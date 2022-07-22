@@ -1,29 +1,31 @@
 <template>
-  <Child />
+  <div>
+    <h1>我是app组件</h1>
+    <Suspense>
+      <template v-slot:default>
+        <Demo />
+      </template>
+      <template v-slot:fallback>
+        <h3>Loading...</h3>
+      </template>
+    </Suspense>
+  </div>
 </template>
 
 <script>
-import Child from './components/child.vue';
-import { reactive } from '@vue/reactivity';
-import { provide } from '@vue/runtime-core';
+import { defineAsyncComponent } from '@vue/runtime-core';
+const Demo = defineAsyncComponent(() => import('./components/demo'));
 export default {
   name: 'App',
-  components: {
-    Child,
-  },
-  setup() {
-    let user = reactive({
-      name: '张三',
-      age: 18,
-    });
-
-    provide('user', user);
-
-    return {
-      user,
-    };
-  },
+  components: { Demo },
+  setup() {},
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+div {
+  width: 600px;
+  height: 200px;
+  background-color: skyblue;
+}
+</style>
