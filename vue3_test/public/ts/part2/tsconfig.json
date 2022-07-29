@@ -1,0 +1,18 @@
+{
+  "compilerOptions": {
+    // target用来指定ts被编译为的ES版本
+    // "es3","es5","es6","es2015","es2016","es2017","es2018",……,"esnext"(最新的es版本)
+    "target": "ES2022",
+    // module用来指定要使用的模块化的规范
+    // "none","commonjs","amd","system","umd","es6","es2015","es2020","esnext"(最新的es版本)
+    "module": "es6",
+    // lib用来指定项目中要用的库，一般在浏览器环境下不需要配置lib，使用默认情况就好
+    // "lib": [],
+
+    // outDir用来指定编译后文件所在的目录
+    "outDir": "./dist"
+    // outFile用来将代码合并成一个文件
+    // 设置outFile后，所有的全局作用域中的代码会合并到同一个文件中
+    // "outFile": "./dist/app.js"
+  }
+}
